@@ -327,3 +327,59 @@ h1, h2, h3, h4 {
   transition: color 0.2s ease;
 }
 .nav-link:hover { color: #FFFFFF; }
+
+/* ─── MUZU Halo Breathing Glow Animation ────────────────────────── */
+@keyframes muzuHaloGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 16px rgba(245,166,35,0.25)) drop-shadow(0 0 36px rgba(245,166,35,0.12));
+    opacity: 0.92;
+  }
+  50% {
+    filter: drop-shadow(0 0 32px rgba(245,166,35,0.48)) drop-shadow(0 0 64px rgba(245,166,35,0.24));
+    opacity: 1.0;
+  }
+}
+
+.muzu-halo-glow {
+  animation: muzuHaloGlow 3.5s ease-in-out infinite;
+}
+
+/* Glass panel */
+.glass-panel {
+  background: rgba(44, 44, 46, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Sound wave animation keyframes */
+@keyframes soundWavePulse {
+  0%, 100% { transform: scaleY(0.2); }
+  50% { transform: scaleY(1); }
+}
+
+.sound-wave-bar {
+  animation: soundWavePulse 1.2s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+/* Float animation for bubbles */
+@keyframes floatBubble {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.float-bubble {
+  animation: floatBubble 5s ease-in-out infinite;
+}
+
+.float-bubble-delayed {
+  animation: floatBubble 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.float-bubble-slow {
+  animation: floatBubble 7s ease-in-out infinite;
+  animation-delay: 3s;
+}
+

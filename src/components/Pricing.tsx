@@ -6,56 +6,38 @@ import Link from "next/link";
 
 const PLANS = [
   {
-    name: "Lite",
-    price: "₹3,500",
-    period: "/month",
-    description: "Perfect for single-store pilots",
+    name: "90-Day Pilot Program",
+    price: "₹15,000",
+    period: "/store/month",
+    description: "Perfect for proving ROI in 3 to 10 store locations",
     features: [
-      "1 Muzu Device",
-      "2 Languages",
-      "Basic morning reports",
-      "WhatsApp QR handoff",
-      "Email support",
+      "3 to 10 MUZU Halo devices included",
+      "Full physical setup & installation",
+      "Custom voice training & persona tuning",
+      "Real-time analytics dashboard access",
+      "Automated email morning reports",
+      "Standard WhatsApp QR integration",
     ],
-    cta: "Start Pilot",
-    href: "/login",
-    highlighted: false,
-    dark: false,
-  },
-  {
-    name: "Pro",
-    price: "₹5,500",
-    period: "/month",
-    description: "The full Muzu experience",
-    features: [
-      "1 Muzu Device",
-      "4 Languages",
-      "Full analytics dashboard",
-      "Brand personality config",
-      "WhatsApp + QR handoff",
-      "Morning + weekly reports",
-      "Priority support",
-    ],
-    cta: "Start Pilot",
+    cta: "Start 90-Day Pilot",
     href: "/login",
     highlighted: true,
-    badge: "Most Popular",
+    badge: "Quick Launch",
     dark: false,
   },
   {
-    name: "Brand",
+    name: "Enterprise Deployment",
     price: "Custom",
     period: "",
-    description: "For multi-store rollouts",
+    description: "For brand-wide rollouts across multi-store retail footprints",
     features: [
-      "Multiple Muzu Devices",
-      "All 4 Languages + custom",
-      "White-label dashboard",
-      "API access",
-      "Custom brand personality",
-      "Dedicated account manager",
+      "Bulk hardware deployment pricing",
+      "Custom SLAs & next-day hardware swap",
+      "Fully white-labeled dashboard option",
+      "Secure API access for internal CRM sync",
+      "Dedicated retail category managers",
+      "Continuous prompt tuning & custom features",
     ],
-    cta: "Contact Us",
+    cta: "Request Enterprise Quote",
     href: "/login",
     highlighted: false,
     dark: true,
@@ -99,11 +81,11 @@ export default function Pricing() {
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "64px" }}>
           <FadeUp delay={0} style={{ height: "auto" }}>
-            <span className="section-eyebrow">Pricing</span>
+            <span className="section-eyebrow">Onboarding Plans</span>
           </FadeUp>
           <FadeUp delay={0.08} style={{ height: "auto" }}>
             <h2 className="section-heading section-heading-dark">
-              Simple Pricing. No Surprises.
+              Simple Pricing. Guaranteed ROI.
             </h2>
           </FadeUp>
           <FadeUp delay={0.16} style={{ height: "auto" }}>
@@ -113,31 +95,31 @@ export default function Pricing() {
                 fontSize: "16px",
                 color: "#636366",
                 marginTop: "16px",
-                maxWidth: "460px",
+                maxWidth: "520px",
                 marginLeft: "auto",
                 marginRight: "auto",
               }}
             >
-              Start with a 3-store pilot. Zero hardware cost upfront.
+              Start small with a pilot trial, evaluate conversion metrics, and scale seamlessly across your entire store distribution network.
             </p>
           </FadeUp>
         </div>
 
-        {/* Cards */}
+        {/* Cards Wrapper */}
         <div
           style={{
+            maxWidth: "840px",
+            margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "0",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: "28px",
             alignItems: "stretch",
           }}
           className="pricing-grid"
         >
           {PLANS.map((plan, i) => {
-            const isPro  = plan.name === "Pro";
+            const isHighlighted = plan.highlighted;
             const isDark = plan.dark;
-            const isLite = plan.name === "Lite";
-            const isBrand = plan.name === "Brand";
 
             return (
               <FadeUp key={plan.name} delay={0.08 * i}>
@@ -146,25 +128,18 @@ export default function Pricing() {
                     display: "flex",
                     flexDirection: "column",
                     height: "100%",
-                    padding: isPro ? "40px 32px" : "32px 28px",
+                    padding: "40px 32px",
                     background: isDark ? "#2C2C2E" : "#FFFFFF",
-                    border: isPro
+                    border: isHighlighted
                       ? "2px solid #F5A623"
                       : isDark
                       ? "1px solid rgba(255,255,255,0.1)"
                       : "1px solid rgba(0,0,0,0.07)",
-                    borderRadius: isPro ? "20px" : "16px",
-                    boxShadow: isPro
-                      ? "0 8px 48px rgba(245,166,35,0.22)"
-                      : isDark
-                      ? "none"
+                    borderRadius: "20px",
+                    boxShadow: isHighlighted
+                      ? "0 12px 48px rgba(245,166,35,0.15)"
                       : "0 2px 16px rgba(0,0,0,0.05)",
                     position: "relative",
-                    marginTop: isPro ? "-16px" : "0",
-                    marginBottom: isPro ? "-16px" : "0",
-                    zIndex: isPro ? 2 : 1,
-                    ...(isLite ? { borderRight: "none", borderRadius: "16px 0 0 16px" } : {}),
-                    ...(isBrand ? { borderLeft: "none", borderRadius: "0 16px 16px 0" } : {}),
                   }}
                   className="pricing-card-responsive"
                 >
@@ -209,8 +184,9 @@ export default function Pricing() {
                       style={{
                         fontFamily: "var(--font-nunito, 'Nunito', sans-serif)",
                         fontSize: "14px",
-                        color: "#636366",
+                        color: isDark ? "rgba(255,255,255,0.5)" : "#636366",
                         margin: 0,
+                        lineHeight: 1.5,
                       }}
                     >
                       {plan.description}
@@ -230,7 +206,7 @@ export default function Pricing() {
                       style={{
                         fontFamily: "var(--font-syne, 'Syne', sans-serif)",
                         fontWeight: 700,
-                        fontSize: "2.5rem",
+                        fontSize: "2.8rem",
                         lineHeight: 1,
                         color: isDark ? "#FFFFFF" : "#1C1C1E",
                       }}
@@ -242,7 +218,7 @@ export default function Pricing() {
                         style={{
                           fontFamily: "var(--font-nunito, 'Nunito', sans-serif)",
                           fontSize: "14px",
-                          color: "#636366",
+                          color: isDark ? "rgba(255,255,255,0.4)" : "#636366",
                           paddingBottom: "4px",
                         }}
                       >
@@ -267,7 +243,7 @@ export default function Pricing() {
                       flexDirection: "column",
                       gap: "14px",
                       flex: 1,
-                      marginBottom: "28px",
+                      marginBottom: "36px",
                       listStyle: "none",
                       padding: 0,
                     }}
@@ -285,8 +261,8 @@ export default function Pricing() {
                         <span
                           style={{
                             fontFamily: "var(--font-nunito, 'Nunito', sans-serif)",
-                            fontSize: "14px",
-                            lineHeight: 1.6,
+                            fontSize: "14.5px",
+                            lineHeight: 1.5,
                             color: isDark ? "rgba(255,255,255,0.8)" : "#2C2C2E",
                           }}
                         >
@@ -299,7 +275,7 @@ export default function Pricing() {
                   {/* CTA */}
                   <Link
                     href={plan.href}
-                    className={`btn ${isPro ? "btn-primary" : isDark ? "btn-white" : "btn-dark"}`}
+                    className={`btn ${isHighlighted ? "btn-primary" : isDark ? "btn-white" : "btn-dark"}`}
                     style={{ width: "100%", justifyContent: "center" }}
                   >
                     {plan.cta}
@@ -321,29 +297,17 @@ export default function Pricing() {
               marginTop: "40px",
             }}
           >
-            All plans include device setup + onboarding support.{" "}
+            All pilot programs include full device setup + custom onboarding support.{" "}
             <Link
               href="/login"
               style={{ color: "#F5A623", textDecoration: "none" }}
             >
-              Talk to us
+              Talk to a pilot specialist
             </Link>{" "}
-            about multi-store pricing.
+            for custom integration requirements.
           </p>
         </FadeUp>
       </div>
-
-      <style>{`
-        @media (max-width: 767px) {
-          .pricing-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
-          .pricing-card-responsive {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
-            border-radius: 16px !important;
-            border: 1px solid rgba(0,0,0,0.08) !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
