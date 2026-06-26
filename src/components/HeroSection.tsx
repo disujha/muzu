@@ -203,6 +203,7 @@ export default function HeroSection() {
         >
           {/* Main Visual Bezel Wrapper */}
           <div
+            className="hero-shelf-bezel"
             style={{
               position: "relative",
               width: "100%",
@@ -230,6 +231,7 @@ export default function HeroSection() {
 
             {/* Simulated Wooden / Premium Dark Shelf Board Profile */}
             <div
+              className="hero-shelf-board"
               style={{
                 position: "absolute",
                 bottom: "60px",
@@ -246,6 +248,7 @@ export default function HeroSection() {
 
             {/* Glowing amber edge LED track on shelf front */}
             <div
+              className="hero-shelf-led"
               style={{
                 position: "absolute",
                 bottom: "54px",
@@ -261,6 +264,7 @@ export default function HeroSection() {
 
             {/* 2X Larger Halo Render Device & Floating Product Placement */}
             <div
+              className="hero-shelf-inner"
               style={{
                 position: "relative",
                 width: "480px",
@@ -287,6 +291,7 @@ export default function HeroSection() {
 
               {/* The Actual Product Render image wrapper */}
               <div
+                className="hero-shelf-product"
                 style={{
                   position: "relative",
                   width: "240px",
@@ -309,6 +314,7 @@ export default function HeroSection() {
 
               {/* Sound waves overlay on the right of product */}
               <div
+                className="hero-sound-waves"
                 style={{
                   position: "absolute",
                   right: "40px",
@@ -338,7 +344,7 @@ export default function HeroSection() {
           {/* Floating conversation bubbles */}
           {/* Bubble 1: Left Top */}
           <div
-            className="float-bubble glass-panel"
+            className="float-bubble glass-panel hero-bubble-1"
             style={{
               position: "absolute",
               top: "20px",
@@ -361,7 +367,7 @@ export default function HeroSection() {
 
           {/* Bubble 2: Right Top */}
           <div
-            className="float-bubble-delayed glass-panel"
+            className="float-bubble-delayed glass-panel hero-bubble-2"
             style={{
               position: "absolute",
               top: "60px",
@@ -384,7 +390,7 @@ export default function HeroSection() {
 
           {/* Bubble 3: Left Bottom */}
           <div
-            className="float-bubble-slow glass-panel"
+            className="float-bubble-slow glass-panel hero-bubble-3"
             style={{
               position: "absolute",
               bottom: "100px",
@@ -407,7 +413,7 @@ export default function HeroSection() {
 
           {/* Bubble 4: Right Bottom */}
           <div
-            className="float-bubble glass-panel"
+            className="float-bubble glass-panel hero-bubble-4"
             style={{
               position: "absolute",
               bottom: "40px",
@@ -693,6 +699,47 @@ export default function HeroSection() {
 
       <style>{`
         @media (max-width: 767px) {
+          .hero-bubble-1, .hero-bubble-2, .hero-bubble-3, .hero-bubble-4 {
+            display: none !important;
+          }
+          .hero-shelf-bezel {
+            height: 250px !important;
+            border-radius: 18px !important;
+          }
+          .hero-shelf-board {
+            bottom: 30px !important;
+            left: 20px !important;
+            right: 20px !important;
+            height: 10px !important;
+          }
+          .hero-shelf-led {
+            bottom: 26px !important;
+            left: 20px !important;
+            right: 20px !important;
+            height: 4px !important;
+          }
+          .hero-shelf-inner {
+            width: 100% !important;
+            height: 160px !important;
+            margin-top: -10px !important;
+          }
+          .hero-shelf-product {
+            width: 120px !important;
+            height: 120px !important;
+            border-radius: 14px !important;
+          }
+          .hero-sound-waves {
+            right: 15px !important;
+            height: 24px !important;
+          }
+          .hero-sound-waves .sound-wave-bar {
+            width: 2px !important;
+            height: 18px !important;
+          }
+          .muzu-halo-glow {
+            width: 130px !important;
+            height: 130px !important;
+          }
           .stats-grid-bezel {
             grid-template-columns: 1fr 1fr !important;
             gap: 24px 0 !important;
@@ -702,7 +749,7 @@ export default function HeroSection() {
             border-bottom: 1.5px solid rgba(255,255,255,0.06);
             padding-bottom: 16px !important;
           }
-          .stat-col:nth-child(3), .stat-col:nth-child(4) {
+          .stat-col:nth-child(3), .stat-col:nth-col(4) {
             border-bottom: none !important;
             padding-bottom: 0 !important;
           }
