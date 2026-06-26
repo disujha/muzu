@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 import {
   LayoutDashboard,
   MessageSquare,
@@ -32,6 +33,15 @@ function LogoMark() {
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const { user, logout } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (err) {
+      console.error("Failed to log out", err);
+    }
+  };
 
   return (
     <aside className="fixed left-0 top-0 h-screen w-[240px] bg-brand-black flex flex-col border-r border-white/[0.06] z-30">
@@ -65,9 +75,22 @@ export default function Sidebar() {
         })}
       </nav>
 
-      {/* Footer */}
-      <div className="px-3 py-4 border-t border-white/[0.06]">
-        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-ui text-[14px] font-nunito font-medium text-brand-gray hover:text-brand-white hover:bg-white/[0.04] transition-all duration-200">
+      {/* User Info & Footer */}
+      <div className="px-4 py-4 border-t border-white/[0.06] flex flex-col gap-4">
+        {user && (
+          <div className="flex flex-col gap-0.5 px-3">
+            <span className="font-nunito font-bold text-[13px] text-brand-white truncate">
+              {user.displayName || "Admin User"}
+            </span>
+            <span className="font-nunito text-[11px] text-brand-gray truncate">
+              {user.email}
+            </span>
+          </div>
+        )}
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-ui text-[14px] font-nunito font-medium text-brand-gray hover:text-red-400 hover:bg-red-400/10 transition-all duration-200"
+        >
           <LogOut size={16} strokeWidth={1.5} />
           Log Out
         </button>

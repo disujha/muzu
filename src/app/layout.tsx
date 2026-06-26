@@ -35,12 +35,18 @@ export const metadata: Metadata = {
   },
 };
 
+import { AuthContextProvider } from "@/context/AuthContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${syne.variable} ${nunito.variable} ${jetbrains.variable}`}>
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        <AuthContextProvider>
+          {children}
+        </AuthContextProvider>
+      </body>
     </html>
   );
 }
