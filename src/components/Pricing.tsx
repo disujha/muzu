@@ -18,7 +18,7 @@ const PLANS = [
       "Email support",
     ],
     cta: "Start Pilot",
-    href: "#demo",
+    href: "/login",
     highlighted: false,
     dark: false,
   },
@@ -37,7 +37,7 @@ const PLANS = [
       "Priority support",
     ],
     cta: "Start Pilot",
-    href: "#demo",
+    href: "/login",
     highlighted: true,
     badge: "Most Popular",
     dark: false,
@@ -56,7 +56,7 @@ const PLANS = [
       "Dedicated account manager",
     ],
     cta: "Contact Us",
-    href: "#demo",
+    href: "/login",
     highlighted: false,
     dark: true,
   },
@@ -323,7 +323,7 @@ export default function Pricing() {
           >
             All plans include device setup + onboarding support.{" "}
             <Link
-              href="#demo"
+              href="/login"
               style={{ color: "#F5A623", textDecoration: "none" }}
             >
               Talk to us

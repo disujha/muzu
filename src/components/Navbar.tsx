@@ -119,8 +119,8 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="desktop-nav">
-            <Link href="#demo" className="btn btn-primary btn-sm">
-              Book a Demo
+            <Link href="/login" className="btn btn-primary btn-sm">
+              Start Now
             </Link>
           </div>
 
@@ -199,11 +199,11 @@ export default function Navbar() {
               transition={{ delay: NAV_LINKS.length * 0.07, duration: 0.38 }}
             >
               <Link
-                href="#demo"
+                href="/login"
                 onClick={() => setMenuOpen(false)}
                 className="btn btn-primary"
               >
-                Book a Demo
+                Start Now
               </Link>
             </motion.div>
           </motion.div>

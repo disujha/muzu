@@ -90,7 +90,7 @@ export default function DemoCTA() {
               margin: "0 0 20px",
             }}
           >
-            See Muzu on Your Shelf
+            Start Transforming Your Shelves Today
           </h2>
         </FadeUp>
 
@@ -114,12 +114,17 @@ export default function DemoCTA() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              gap: "16px",
+              gap: "20px",
             }}
           >
-            <Link href="mailto:hello@muzu.ai" className="btn btn-primary btn-lg">
-              Book a 20-Minute Demo
-            </Link>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", justifyContent: "center" }}>
+              <Link href="/login" className="btn btn-primary btn-lg">
+                Start Now
+              </Link>
+              <Link href="/dashboard" className="btn btn-secondary btn-lg">
+                Explore Dashboard Preview →
+              </Link>
+            </div>
             <p
               style={{
                 fontFamily: "var(--font-nunito, 'Nunito', sans-serif)",
