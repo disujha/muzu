@@ -7,7 +7,7 @@ const COL_LEFT = [
   { label: "Product",    href: "#product" },
   { label: "Pricing",    href: "#pricing" },
   { label: "For Brands", href: "#brands" },
-  { label: "Contact",    href: "mailto:hello@muzu.ai" },
+  { label: "Contact",    href: "mailto:hello@muzu.in" },
 ];
 
 const COL_RIGHT = [
