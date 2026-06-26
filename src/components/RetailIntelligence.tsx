@@ -3,42 +3,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const PLATFORM_FEATURES = [
-  {
-    title: "Customer Conversations",
-    desc: "Log 100% of shopper queries anonymously in real-time to instantly uncover category confusion, active questions, and purchase barriers.",
-    badge: "DIALOGUE TELEMETRY",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-        <path d="M8 10h8M8 14h6" />
-      </svg>
-    ),
-  },
-  {
-    title: "Shopper Analytics",
-    desc: "Track foot traffic metrics, shopper dwell times, and aisle engagement rates triggered directly via mmWave radar sensors.",
-    badge: "AISLE TRAFFIC",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="18" y1="20" x2="18" y2="10" />
-        <line x1="12" y1="20" x2="12" y2="4" />
-        <line x1="6" y1="20" x2="6" y2="14" />
-      </svg>
-    ),
-  },
-  {
-    title: "Campaign Performance",
-    desc: "Deploy fresh voice promotions instantly via OTA updates and measure baseline trial lift and QR code checkout conversion rates.",
-    badge: "CONVERSION ROI",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    ),
-  },
-];
-
 function FadeUp({ children, delay = 0, style = {} }: { children: React.ReactNode; delay?: number; style?: React.CSSProperties }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -61,7 +25,7 @@ export default function RetailIntelligence() {
       id="retail-intelligence"
       style={{
         background: "#1C1C1E",
-        padding: "120px 24px",
+        padding: "160px 24px",
         position: "relative",
         overflow: "hidden",
         borderBottom: "1px solid rgba(255,255,255,0.04)",
@@ -86,119 +50,608 @@ export default function RetailIntelligence() {
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "72px" }}>
           <FadeUp delay={0}>
-            <span className="section-eyebrow">Cloud Dashboard</span>
+            <span className="section-eyebrow">Cloud Console</span>
           </FadeUp>
           <FadeUp delay={0.08}>
-            <h2 className="section-heading section-heading-light" style={{ marginBottom: "16px" }}>
+            <h2 className="section-heading section-heading-light" style={{ marginBottom: "20px" }}>
               Retail Intelligence Platform
             </h2>
           </FadeUp>
           <FadeUp delay={0.16}>
             <p className="section-subtext" style={{ margin: "0 auto", color: "rgba(255,255,255,0.55)" }}>
-              A unified software ecosystem that converts physical customer interactions into structured retail analytics.
+              Go beyond basic sales data. Access deep, unstructured shopper insights captured at the physical shelf edge in real-time.
             </p>
           </FadeUp>
         </div>
 
-        {/* 3 Premium Feature Cards Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "32px",
-            maxWidth: "1080px",
-            margin: "0 auto",
-            alignItems: "stretch",
-          }}
-          className="intelligence-grid"
-        >
-          {PLATFORM_FEATURES.map((f, i) => (
-            <FadeUp key={i} delay={0.08 * i}>
-              <div
-                style={{
-                  background: "#2C2C2E",
-                  borderRadius: "20px",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                  padding: "40px 32px",
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "100%",
-                  gap: "24px",
-                  transition: "all 0.3s ease",
-                  minHeight: "260px",
-                }}
-                className="feature-card card-dark"
-              >
-                {/* Icon & Badge Header */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
-                  <div
-                    style={{
-                      width: "52px",
-                      height: "52px",
-                      borderRadius: "12px",
-                      background: "rgba(245,166,35,0.08)",
-                      border: "1px solid rgba(245,166,35,0.15)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {f.icon}
-                  </div>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-mono, monospace)",
-                      fontSize: "9.5px",
-                      color: "#F5A623",
-                      background: "rgba(245,166,35,0.05)",
-                      border: "1px solid rgba(245,166,35,0.12)",
-                      borderRadius: "6px",
-                      padding: "4px 10px",
-                      letterSpacing: "0.06em",
-                      fontWeight: 600,
-                    }}
-                  >
-                    {f.badge}
-                  </span>
+        {/* ─── Premium Bento Grid Layout ─── */}
+        <div className="bento-grid">
+          
+          {/* 1. Retail Intelligence Dashboard (span 2) */}
+          <div className="bento-item span-2" style={{ minHeight: "340px" }}>
+            <FadeUp delay={0.05}>
+              <div className="bento-card">
+                <div className="card-header">
+                  <span className="card-badge">CENTRAL CONSOLE</span>
+                  <h3 className="card-title">Retail Intelligence Dashboard</h3>
                 </div>
-
-                {/* Card Content */}
-                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-syne, 'Syne', sans-serif)",
-                      fontWeight: 700,
-                      fontSize: "19px",
-                      color: "#FFFFFF",
-                      margin: 0,
-                    }}
-                  >
-                    {f.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-nunito, 'Nunito', sans-serif)",
-                      fontSize: "14.5px",
-                      lineHeight: 1.6,
-                      color: "rgba(255,255,255,0.55)",
-                      margin: 0,
-                    }}
-                  >
-                    {f.desc}
-                  </p>
+                <p className="card-desc">
+                  Synchronize your entire physical store fleet. Watch live shopper approach velocities, active dialogue streams, and shelf status updates in a unified dashboard.
+                </p>
+                {/* Visual interface simulation */}
+                <div className="dashboard-console-preview">
+                  <div className="console-bar">
+                    <span className="dot status-green" />
+                    <span className="console-label">All Aisle Stations Online</span>
+                    <span className="console-latency">Edge Latency: 1.4s</span>
+                  </div>
+                  <div className="console-visual-bars">
+                    {[65, 80, 45, 90, 75, 60, 85].map((val, idx) => (
+                      <div key={idx} className="bar-container">
+                        <div className="bar-fill" style={{ height: `${val}%` }} />
+                        <span className="bar-tag">S{idx+1}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </FadeUp>
-          ))}
-        </div>
+          </div>
 
+          {/* 2. Purchase Intent (span 1) */}
+          <div className="bento-item span-1" style={{ minHeight: "340px" }}>
+            <FadeUp delay={0.1}>
+              <div className="bento-card justify-between">
+                <div>
+                  <div className="card-header">
+                    <span className="card-badge">CONVERSION PATH</span>
+                    <h3 className="card-title">Purchase Intent</h3>
+                  </div>
+                  <p className="card-desc">
+                    Measure category trial lift and checkout rates driven directly by verbal recommendations.
+                  </p>
+                </div>
+                <div className="intent-metric-box">
+                  <div className="metric-col">
+                    <span className="metric-val text-brand-amber">+28%</span>
+                    <span className="metric-label">Premium Trials</span>
+                  </div>
+                  <div className="metric-col">
+                    <span className="metric-val text-brand-white">+18%</span>
+                    <span className="metric-label">Basket Growth</span>
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+
+          {/* 3. Customer Questions (span 1) */}
+          <div className="bento-item span-1" style={{ minHeight: "360px" }}>
+            <FadeUp delay={0.15}>
+              <div className="bento-card">
+                <div className="card-header">
+                  <span className="card-badge">LIVE INQUIRIES</span>
+                  <h3 className="card-title">Customer Questions</h3>
+                </div>
+                <p className="card-desc">
+                  Capture unstructured shopper inquiries anonymously. Instantly reveal purchase barriers.
+                </p>
+                <div className="questions-feed">
+                  {[
+                    { q: "Is this dark roast organic?", tag: "Coffee" },
+                    { q: "Safe for eczematous skin?", tag: "Skincare" },
+                    { q: "Is this model alcohol-free?", tag: "Hygiene" }
+                  ].map((item, idx) => (
+                    <div key={idx} className="feed-bubble">
+                      <span className="bubble-text">&ldquo;{item.q}&rdquo;</span>
+                      <span className="bubble-tag">{item.tag}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+
+          {/* 4. Conversation Analytics (span 1) */}
+          <div className="bento-item span-1" style={{ minHeight: "360px" }}>
+            <FadeUp delay={0.2}>
+              <div className="bento-card justify-between">
+                <div>
+                  <div className="card-header">
+                    <span className="card-badge">DIALOGUE METRICS</span>
+                    <h3 className="card-title">Conversation Analytics</h3>
+                  </div>
+                  <p className="card-desc">
+                    Monitor average dialogue duration, query resolution rates, and brand engagement parameters.
+                  </p>
+                </div>
+                <div className="analytics-details">
+                  <div className="gauge-container">
+                    <span className="gauge-label">Resolution Rate</span>
+                    <span className="gauge-val">98.4%</span>
+                    <div className="gauge-bar"><div className="gauge-fill" style={{ width: "98.4%" }} /></div>
+                  </div>
+                  <div className="gauge-container">
+                    <span className="gauge-label">Dialogue Completion</span>
+                    <span className="gauge-val">86.2%</span>
+                    <div className="gauge-bar"><div className="gauge-fill" style={{ width: "86.2%" }} /></div>
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+
+          {/* 5. Language Analytics (span 1) */}
+          <div className="bento-item span-1" style={{ minHeight: "360px" }}>
+            <FadeUp delay={0.25}>
+              <div className="bento-card justify-between">
+                <div>
+                  <div className="card-header">
+                    <span className="card-badge">DEMOGRAPHICS</span>
+                    <h3 className="card-title">Language Analytics</h3>
+                  </div>
+                  <p className="card-desc">
+                    Auto-detect and map spoken dialetical patterns. Deliver localized product knowledge instantly.
+                  </p>
+                </div>
+                <div className="language-list">
+                  {[
+                    { lang: "Hindi (Dialect)", val: "42%" },
+                    { lang: "English", val: "38%" },
+                    { lang: "Tamil / Regional", val: "20%" }
+                  ].map((item, idx) => (
+                    <div key={idx} className="lang-row">
+                      <span className="lang-name">{item.lang}</span>
+                      <span className="lang-pct">{item.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+
+          {/* 6. Product Interest Heatmap (span 2) */}
+          <div className="bento-item span-2" style={{ minHeight: "300px" }}>
+            <FadeUp delay={0.3}>
+              <div className="bento-card">
+                <div className="card-header">
+                  <span className="card-badge">SPATIAL INTENTS</span>
+                  <h3 className="card-title">Product Interest Heatmap</h3>
+                </div>
+                <p className="card-desc">
+                  Visualize physical shopper traffic distribution and product shelf engagement. Identify cold zones and hot spots instantly.
+                </p>
+                {/* Shelf mock visual */}
+                <div className="shelf-heatmap-mock">
+                  <div className="shelf-level">
+                    <span className="shelf-tag">Top Shelf</span>
+                    <div className="shelf-slots">
+                      <div className="slot heat-low">Low Engagement</div>
+                      <div className="slot heat-high">High (88%)</div>
+                    </div>
+                  </div>
+                  <div className="shelf-level">
+                    <span className="shelf-tag">Middle Shelf</span>
+                    <div className="shelf-slots">
+                      <div className="slot heat-max">Max (96%)</div>
+                      <div className="slot heat-medium">Medium (64%)</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+
+          {/* 7. Campaign Performance (span 1) */}
+          <div className="bento-item span-1" style={{ minHeight: "300px" }}>
+            <FadeUp delay={0.35}>
+              <div className="bento-card justify-between">
+                <div>
+                  <div className="card-header">
+                    <span className="card-badge">PROMOTIONAL ROI</span>
+                    <h3 className="card-title">Campaign Performance</h3>
+                  </div>
+                  <p className="card-desc">
+                    Deploy audio vouchers and track direct coupon scan conversions on WhatsApp instantly.
+                  </p>
+                </div>
+                <div className="campaign-stats">
+                  <div className="stat-row">
+                    <span className="stat-label font-mono">OTA UPDATES</span>
+                    <span className="stat-val text-brand-amber">Instant</span>
+                  </div>
+                  <div className="stat-row">
+                    <span className="stat-label font-mono">VOUCHER SCAN</span>
+                    <span className="stat-val text-brand-white">22.4%</span>
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+
+        </div>
       </div>
 
       <style>{`
+        .bento-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 28px;
+          max-width: 1120px;
+          margin: 0 auto;
+        }
+        
+        .bento-item {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .span-2 {
+          grid-column: span 2;
+        }
+
+        .span-1 {
+          grid-column: span 1;
+        }
+
+        .bento-card {
+          background: #2C2C2E;
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          border-radius: 24px;
+          padding: 32px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bento-card:hover {
+          border-color: rgba(245, 166, 35, 0.25);
+          box-shadow: 0 12px 36px rgba(245, 166, 35, 0.04);
+        }
+
+        .card-header {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .card-badge {
+          font-family: var(--font-mono, monospace);
+          font-size: 9px;
+          font-weight: 700;
+          color: #F5A623;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+
+        .card-title {
+          font-family: var(--font-syne, 'Syne', sans-serif);
+          font-size: 19px;
+          font-weight: 700;
+          color: #FFFFFF;
+          margin: 0;
+        }
+
+        .card-desc {
+          font-family: var(--font-nunito, 'Nunito', sans-serif);
+          font-size: 14px;
+          line-height: 1.5;
+          color: rgba(255, 255, 255, 0.5);
+          margin: 0;
+        }
+
+        /* Micro Visualizers */
+        .dashboard-console-preview {
+          background: #1C1C1E;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.04);
+          padding: 16px;
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 16px;
+          margin-top: 8px;
+        }
+
+        .console-bar {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-family: var(--font-mono, monospace);
+          font-size: 10px;
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        .dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+        }
+
+        .status-green {
+          background: #34A853;
+          box-shadow: 0 0 8px rgba(52, 168, 83, 0.6);
+        }
+
+        .console-latency {
+          margin-left: auto;
+        }
+
+        .console-visual-bars {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          height: 64px;
+          padding: 0 8px;
+        }
+
+        .bar-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+          width: 10%;
+          height: 100%;
+          justify-content: flex-end;
+        }
+
+        .bar-fill {
+          width: 100%;
+          background: linear-gradient(180deg, #F5A623 0%, rgba(245, 166, 35, 0.2) 100%);
+          border-radius: 3px 3px 0 0;
+          transition: height 0.3s ease;
+        }
+
+        .bar-tag {
+          font-family: var(--font-mono, monospace);
+          font-size: 8px;
+          color: rgba(255, 255, 255, 0.25);
+        }
+
+        .intent-metric-box {
+          display: flex;
+          gap: 24px;
+          margin-top: 16px;
+        }
+
+        .metric-col {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          background: #1C1C1E;
+          border-radius: 12px;
+          padding: 16px;
+          flex-grow: 1;
+        }
+
+        .metric-val {
+          font-family: var(--font-mono, monospace);
+          font-size: 24px;
+          font-weight: 700;
+        }
+
+        .metric-label {
+          font-family: var(--font-nunito, 'Nunito', sans-serif);
+          font-size: 11px;
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        .questions-feed {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          margin-top: 8px;
+        }
+
+        .feed-bubble {
+          background: #1C1C1E;
+          border: 1px solid rgba(255, 255, 255, 0.03);
+          border-radius: 10px;
+          padding: 10px 14px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .bubble-text {
+          font-family: var(--font-nunito, 'Nunito', sans-serif);
+          font-size: 12.5px;
+          color: #FFFFFF;
+        }
+
+        .bubble-tag {
+          font-family: var(--font-mono, monospace);
+          font-size: 9px;
+          color: #F5A623;
+          background: rgba(245, 166, 35, 0.08);
+          padding: 2px 6px;
+          border-radius: 4px;
+        }
+
+        .analytics-details {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin-top: 16px;
+        }
+
+        .gauge-container {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .gauge-label {
+          font-family: var(--font-nunito, 'Nunito', sans-serif);
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        .gauge-val {
+          font-family: var(--font-mono, monospace);
+          font-size: 16px;
+          font-weight: 700;
+          color: #FFFFFF;
+        }
+
+        .gauge-bar {
+          height: 4px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 2px;
+        }
+
+        .gauge-fill {
+          height: 100%;
+          background: #F5A623;
+          border-radius: 2px;
+        }
+
+        .language-list {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 16px;
+        }
+
+        .lang-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: #1C1C1E;
+          border-radius: 8px;
+          padding: 8px 12px;
+          font-family: var(--font-nunito, 'Nunito', sans-serif);
+          font-size: 13px;
+        }
+
+        .lang-name {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        .lang-pct {
+          font-family: var(--font-mono, monospace);
+          color: #F5A623;
+          font-weight: 700;
+        }
+
+        .shelf-heatmap-mock {
+          background: #1C1C1E;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.04);
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-top: 8px;
+          flex-grow: 1;
+          justify-content: center;
+        }
+
+        .shelf-level {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .shelf-tag {
+          font-family: var(--font-mono, monospace);
+          font-size: 9px;
+          color: rgba(255, 255, 255, 0.35);
+          width: 80px;
+          text-transform: uppercase;
+        }
+
+        .shelf-slots {
+          display: flex;
+          gap: 8px;
+          flex-grow: 1;
+        }
+
+        .slot {
+          flex-grow: 1;
+          border-radius: 6px;
+          padding: 8px;
+          text-align: center;
+          font-family: var(--font-nunito, 'Nunito', sans-serif);
+          font-size: 11px;
+          font-weight: 600;
+        }
+
+        .heat-low {
+          background: rgba(255, 255, 255, 0.03);
+          color: rgba(255, 255, 255, 0.25);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .heat-medium {
+          background: rgba(245, 166, 35, 0.1);
+          color: rgba(245, 166, 35, 0.7);
+          border: 1px solid rgba(245, 166, 35, 0.2);
+        }
+
+        .heat-high {
+          background: rgba(245, 166, 35, 0.22);
+          color: #F5A623;
+          border: 1px solid rgba(245, 166, 35, 0.4);
+          box-shadow: 0 0 12px rgba(245, 166, 35, 0.08);
+        }
+
+        .heat-max {
+          background: rgba(245, 166, 35, 0.32);
+          color: #FFFFFF;
+          border: 1px solid #F5A623;
+          box-shadow: 0 0 16px rgba(245, 166, 35, 0.15);
+        }
+
+        .campaign-stats {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 16px;
+        }
+
+        .stat-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: #1C1C1E;
+          border-radius: 10px;
+          padding: 12px 16px;
+        }
+
+        .stat-label {
+          font-size: 10px;
+          color: rgba(255, 255, 255, 0.35);
+          letter-spacing: 0.05em;
+        }
+
+        .stat-val {
+          font-family: var(--font-mono, monospace);
+          font-size: 16px;
+          font-weight: 700;
+        }
+
+        /* Responsive styling */
         @media (max-width: 991px) {
-          .intelligence-grid {
-            grid-template-columns: 1fr !important;
-            gap: 24px !important;
+          .bento-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+          }
+          .span-2 {
+            grid-column: span 2;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .bento-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+          .span-2 {
+            grid-column: span 1;
           }
         }
       `}</style>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
+import MuzuRing from "./MuzuRing";
 
 function AnimatedCounter({ value, duration = 1.5, suffix = "", decimals = 0 }: { value: number; duration?: number; suffix?: string; decimals?: number }) {
   const [count, setCount] = useState(0);
@@ -123,24 +124,42 @@ export default function HeroSection() {
           World&apos;s First AI Retail Shelf Platform
         </motion.span>
 
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          style={{
-            fontFamily: "var(--font-syne, 'Syne', sans-serif)",
-            fontWeight: 700,
-            fontSize: "clamp(3.2rem, 7vw, 5.5rem)",
-            lineHeight: 1.05,
-            letterSpacing: "-0.03em",
-            color: "#FFFFFF",
-            margin: 0,
-            maxWidth: "800px",
-          }}
-        >
-          Give Every Product a Voice.
-        </motion.h1>
+        {/* Headline Wrapper with background faded animating MuzuRing */}
+        <div style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              opacity: 0.05,
+              pointerEvents: "none",
+              zIndex: 0,
+            }}
+          >
+            <MuzuRing size={440} />
+          </div>
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              fontFamily: "var(--font-syne, 'Syne', sans-serif)",
+              fontWeight: 800,
+              fontSize: "clamp(3.8rem, 9.5vw, 7.2rem)",
+              lineHeight: 0.98,
+              letterSpacing: "-0.04em",
+              color: "#FFFFFF",
+              margin: 0,
+              maxWidth: "1100px",
+              zIndex: 1,
+              position: "relative",
+            }}
+          >
+            Give Every Product a Voice.
+          </motion.h1>
+        </div>
 
         {/* Subheading */}
         <motion.p

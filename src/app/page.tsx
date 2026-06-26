@@ -2,6 +2,7 @@ import Navbar             from "@/components/Navbar";
 import HeroSection         from "@/components/HeroSection";
 import SocialProofBar      from "@/components/SocialProofBar";
 import CinematicDemo       from "@/components/CinematicDemo";
+import WhyNow              from "@/components/WhyNow";
 import HowItWorks          from "@/components/HowItWorks";
 import ProductVisual       from "@/components/ProductVisual";
 import BrandPersonalities  from "@/components/BrandPersonalities";
@@ -11,6 +12,7 @@ import Comparison          from "@/components/Comparison";
 import Industries          from "@/components/Industries";
 import BrandMarquee        from "@/components/BrandMarquee";
 import Pricing             from "@/components/Pricing";
+import BoldVision          from "@/components/BoldVision";
 import DemoCTA             from "@/components/DemoCTA";
 import Footer              from "@/components/Footer";
 import ScrollToTop         from "@/components/ScrollToTop";
@@ -20,17 +22,19 @@ export default function HomePage() {
     <main>
       <Navbar />
       <HeroSection />
+      <Industries />
       <SocialProofBar />
       <CinematicDemo />
+      <WhyNow />
       <HowItWorks />
       <ProductVisual />
       <BrandPersonalities />
       <DashboardMockup />
       <RetailIntelligence />
       <Comparison />
-      <Industries />
       <BrandMarquee />
       <Pricing />
+      <BoldVision />
       <DemoCTA />
       <Footer />
       <ScrollToTop />

@@ -1,7 +1,19 @@
 'use client'
 import { motion } from 'framer-motion'
 
-export default function MuzuRing({ size = 260 }: { size?: number }) {
+export default function MuzuRing({
+  size = 260,
+  color = "#F5A623",
+  glow = "rgba(245,166,35,0.16)",
+  glowSoft = "rgba(245,166,35,0.07)",
+  echo = "rgba(245,166,35,0.15)"
+}: {
+  size?: number;
+  color?: string;
+  glow?: string;
+  glowSoft?: string;
+  echo?: string;
+}) {
   const cx = size / 2
   const cy = size / 2
 
@@ -50,7 +62,7 @@ export default function MuzuRing({ size = 260 }: { size?: number }) {
           position: 'absolute',
           inset: '-20%',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(245,166,35,0.16) 0%, transparent 70%)',
+          background: `radial-gradient(circle, ${glow} 0%, transparent 70%)`,
           pointerEvents: 'none',
         }}
       />
@@ -64,7 +76,7 @@ export default function MuzuRing({ size = 260 }: { size?: number }) {
         <motion.circle
           cx={cx} cy={cy} r={ringR}
           fill="none"
-          stroke="#F5A623"
+          stroke={color}
           strokeWidth={ringStroke}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -75,7 +87,7 @@ export default function MuzuRing({ size = 260 }: { size?: number }) {
         <circle
           cx={cx} cy={cy} r={ringOuterEdge + size * 0.02}
           fill="none"
-          stroke="rgba(245,166,35,0.15)"
+          stroke={echo}
           strokeWidth={1.5}
         />
 
@@ -97,7 +109,7 @@ export default function MuzuRing({ size = 260 }: { size?: number }) {
         {/* 5: Left eye */}
         <motion.circle
           cx={cx - eyeX} cy={eyeY} r={eyeR}
-          fill="#F5A623"
+          fill={color}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
@@ -107,7 +119,7 @@ export default function MuzuRing({ size = 260 }: { size?: number }) {
         {/* 6: Right eye */}
         <motion.circle
           cx={cx + eyeX} cy={eyeY} r={eyeR}
-          fill="#F5A623"
+          fill={color}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.82, duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
@@ -119,9 +131,9 @@ export default function MuzuRing({ size = 260 }: { size?: number }) {
       <motion.div
         animate={{
           boxShadow: [
-            '0 0 0 0px rgba(245,166,35,0.0)',
-            '0 0 0 14px rgba(245,166,35,0.07)',
-            '0 0 0 0px rgba(245,166,35,0.0)',
+            `0 0 0 0px rgba(0,0,0,0)`,
+            `0 0 0 14px ${glowSoft}`,
+            `0 0 0 0px rgba(0,0,0,0)`,
           ]
         }}
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 1 }}

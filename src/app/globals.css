@@ -151,18 +151,18 @@ h1, h2, h3, h4 {
 }
 
 .section-padding {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: 180px;
+  padding-bottom: 180px;
 }
 
 @media (max-width: 768px) {
-  .section-padding { padding-top: 72px; padding-bottom: 72px; }
+  .section-padding { padding-top: 100px; padding-bottom: 100px; }
   .container-content { padding-left: 20px; padding-right: 20px; }
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    TYPOGRAPHY — explicit classes
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 .font-display { font-family: var(--font-syne, "Syne", sans-serif); }
 .font-syne    { font-family: var(--font-syne, "Syne", sans-serif); }
@@ -173,22 +173,22 @@ h1, h2, h3, h4 {
 /* Section eyebrow label */
 .section-eyebrow {
   font-family: var(--font-nunito, "Nunito", sans-serif);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #F5A623;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 /* Section heading */
 .section-heading {
   font-family: var(--font-syne, "Syne", sans-serif);
-  font-weight: 700;
-  font-size: clamp(2rem, 3.5vw, 2.5rem);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
 }
 
 .section-heading-dark  { color: #1C1C1E; }
@@ -197,10 +197,11 @@ h1, h2, h3, h4 {
 /* Section subtext */
 .section-subtext {
   font-family: var(--font-nunito, "Nunito", sans-serif);
-  font-size: 16px;
-  line-height: 1.75;
-  color: #636366;
-  max-width: 520px;
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  line-height: 1.65;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 680px;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

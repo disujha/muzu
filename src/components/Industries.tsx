@@ -3,12 +3,13 @@
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 
-const BRAND_STUDIES = [
+const INDUSTRIES = [
   {
-    id: "nescafe",
+    id: "fmcg",
+    name: "FMCG",
+    category: "Packaged Goods",
     brandName: "Nescafé",
-    category: "Coffee & FMCG",
-    desc: "Drive premium trials and explain roast profiles (Arabica vs Robusta) to shoppers standing in high-velocity coffee aisles.",
+    desc: "Elevate product discovery, answer shelf questions, and explain premium benefits to shoppers in high-velocity grocery aisles.",
     dialog: [
       { role: "shopper", text: "Is this jar Arabica coffee or Robusta?" },
       { role: "muzu", text: "It's a premium blend of 100% Arabica beans, medium-dark roasted for a smooth, rich aroma. Scan the QR code to get an iced coffee recipe!" }
@@ -16,10 +17,11 @@ const BRAND_STUDIES = [
     metric: "+28% Premium Upsells",
   },
   {
-    id: "coca-cola",
+    id: "beverages",
+    name: "Beverages",
+    category: "Chilled & Soft Drinks",
     brandName: "Coca-Cola",
-    category: "Beverages & Soft Drinks",
-    desc: "Highlight sugar-free variants, promote food combos, and trigger impulse buys right at the chiller entrance.",
+    desc: "Highlight sugar-free variants, promote food pairing combos, and trigger impulse purchases at key chiller access points.",
     dialog: [
       { role: "shopper", text: "Which variant of this pack is sugar-free?" },
       { role: "muzu", text: "The Coca-Cola Zero Sugar has zero calories and zero sugar, but has the same iconic taste. We have a buy-2-get-1 offer on it today!" }
@@ -27,21 +29,11 @@ const BRAND_STUDIES = [
     metric: "+18% Basket Size",
   },
   {
-    id: "colgate",
-    brandName: "Colgate",
-    category: "Oral Care & Health",
-    desc: "Confirm ingredient certifications, dental recommendations, and help shoppers choose between whitening vs sensitive toothpaste options.",
-    dialog: [
-      { role: "shopper", text: "Is Colgate Plax mouthwash alcohol-free?" },
-      { role: "muzu", text: "Yes! Colgate Plax is 100% alcohol-free, providing 12-hour antibacterial protection with no burning sensation." }
-    ],
-    metric: "-40% Aisle Hesitation",
-  },
-  {
-    id: "dove",
+    id: "cosmetics",
+    name: "Cosmetics",
+    category: "Skincare & Beauty",
     brandName: "Dove",
-    category: "Cosmetics & Skincare",
-    desc: "Solve ingredient anxiety, explain pH balance, and guide shoppers through moisturization benefits for dry or sensitive skin.",
+    desc: "Resolve ingredient anxieties, explain skin compatibility, and guide shoppers through moisturization formulas at beauty bars.",
     dialog: [
       { role: "shopper", text: "Is this soap suitable for eczematous skin?" },
       { role: "muzu", text: "Yes, Dove Beauty Bar is hypoallergenic, contains 1/4 moisturizing cream, and is pediatrician-approved for sensitive skin." }
@@ -49,26 +41,40 @@ const BRAND_STUDIES = [
     metric: "3.2x Brand Engagement",
   },
   {
-    id: "cadbury",
-    brandName: "Cadbury",
-    category: "Confectionery & Snacks",
-    desc: "Excite shoppers with happy-hour combo pairing alerts and limited-edition product descriptions in candy bays.",
+    id: "healthcare",
+    name: "Healthcare",
+    category: "Wellness & Oral Care",
+    brandName: "Colgate",
+    desc: "Confirm clinical certifications, explain usage, and help shoppers choose between specific treatment variants.",
     dialog: [
-      { role: "shopper", text: "Does this chocolate pack contain nuts?" },
-      { role: "muzu", text: "Yes, the Cadbury Fruit & Nut bar contains premium California almonds and raisins. The regular Milk Silk is nut-free." }
+      { role: "shopper", text: "Is Colgate Plax mouthwash alcohol-free?" },
+      { role: "muzu", text: "Yes! Colgate Plax is 100% alcohol-free, providing 12-hour antibacterial protection with no burning sensation." }
     ],
-    metric: "+24% Impulse uptake",
+    metric: "-40% Aisle Hesitation",
   },
   {
-    id: "samsung",
+    id: "electronics",
+    name: "Electronics",
+    category: "Smart Devices",
     brandName: "Samsung",
-    category: "Consumer Electronics",
-    desc: "Unpack complex smart features, charger compatibility specs, and warranty details without requiring an in-store promoter.",
+    desc: "Explain complex smart specs, device compatibility, and warranty details in real-time without requiring dedicated store promoters.",
     dialog: [
       { role: "shopper", text: "Does this wireless pad support Apple devices?" },
       { role: "muzu", text: "Yes, it supports standard Qi wireless charging up to 7.5W for iPhone, and up to 15W fast wireless charging for Samsung Galaxy models." }
     ],
     metric: "+30% Spec Conversions",
+  },
+  {
+    id: "personal-care",
+    name: "Personal Care",
+    category: "Grooming & Hygiene",
+    brandName: "Gillette",
+    desc: "Promote bundle purchases, explain blade technology differences, and upsell premium starter kits.",
+    dialog: [
+      { role: "shopper", text: "How long does a single blade cartridge last?" },
+      { role: "muzu", text: "Each Gillette ProGlide refill cartridge provides up to one month of precision shaves. Getting our starter bundle gives you 2 extra refills free today!" }
+    ],
+    metric: "+24% Bundle Uptakes",
   },
 ];
 
@@ -88,17 +94,17 @@ function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 export default function Industries() {
-  const [activeTab, setActiveTab] = useState("nescafe");
+  const [activeTab, setActiveTab] = useState("fmcg");
 
-  const current = BRAND_STUDIES.find((ind) => ind.id === activeTab) || BRAND_STUDIES[0];
+  const current = INDUSTRIES.find((ind) => ind.id === activeTab) || INDUSTRIES[0];
 
   return (
     <section
       id="industries"
       style={{
         background: "#1C1C1E",
-        paddingTop: "120px",
-        paddingBottom: "120px",
+        paddingTop: "160px",
+        paddingBottom: "160px",
         borderTop: "1px solid rgba(255,255,255,0.06)",
         position: "relative",
       }}
@@ -107,16 +113,16 @@ export default function Industries() {
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "72px" }}>
           <FadeUp delay={0}>
-            <span className="section-eyebrow">Industry Solutions</span>
+            <span className="section-eyebrow">Designed for Global Brands</span>
           </FadeUp>
           <FadeUp delay={0.08}>
-            <h2 className="section-heading section-heading-light">
-              Tailored for Global Brands
+            <h2 className="section-heading section-heading-light" style={{ marginBottom: "20px" }}>
+              Conversational Intelligence Across Every Category
             </h2>
           </FadeUp>
           <FadeUp delay={0.16}>
             <p className="section-subtext" style={{ margin: "0 auto", color: "rgba(255,255,255,0.55)" }}>
-              See how MUZU solves distinct category barriers and dialogue scenarios for the world&apos;s leading brands.
+              See how MUZU solves distinct purchasing barriers and guides shopper decisions at the exact point of intent.
             </p>
           </FadeUp>
         </div>
@@ -134,16 +140,16 @@ export default function Industries() {
               padding: "6px",
               borderRadius: "14px",
               border: "1px solid rgba(255,255,255,0.06)",
-              maxWidth: "760px",
+              maxWidth: "840px",
               margin: "0 auto 48px",
             }}
           >
-            {BRAND_STUDIES.map((study) => {
-              const active = study.id === activeTab;
+            {INDUSTRIES.map((ind) => {
+              const active = ind.id === activeTab;
               return (
                 <button
-                  key={study.id}
-                  onClick={() => setActiveTab(study.id)}
+                  key={ind.id}
+                  onClick={() => setActiveTab(ind.id)}
                   style={{
                     fontFamily: "var(--font-syne, 'Syne', sans-serif)",
                     fontWeight: 700,
@@ -159,7 +165,7 @@ export default function Industries() {
                   }}
                   className={active ? "shadow-amber-glow-sm" : ""}
                 >
-                  {study.brandName}
+                  {ind.name}
                 </button>
               );
             })}
@@ -208,7 +214,7 @@ export default function Industries() {
                         marginBottom: "6px",
                       }}
                     >
-                      {current.category}
+                      {current.category} &bull; {current.brandName}
                     </span>
                     <h3
                       style={{
@@ -219,7 +225,7 @@ export default function Industries() {
                         marginBottom: "12px",
                       }}
                     >
-                      {current.brandName} Shelf Dynamics
+                      Active {current.name} Shelf Engagement
                     </h3>
                     <p
                       style={{

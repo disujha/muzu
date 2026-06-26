@@ -10,6 +10,7 @@ const PLANS = [
     price: "₹15,000",
     period: "/store/month",
     description: "Perfect for proving ROI in 3 to 10 store locations",
+    payback: "Payback in ~18 days driven by trials. Zero capex.",
     features: [
       "3 to 10 MUZU Halo devices included",
       "Full physical setup & installation",
@@ -21,7 +22,7 @@ const PLANS = [
     cta: "Start 90-Day Pilot",
     href: "/login",
     highlighted: true,
-    badge: "Quick Launch",
+    badge: "Recommended Pilot",
     dark: false,
   },
   {
@@ -29,6 +30,7 @@ const PLANS = [
     price: "Custom",
     period: "",
     description: "For brand-wide rollouts across multi-store retail footprints",
+    payback: "Custom volume deployment payback models.",
     features: [
       "Bulk hardware deployment pricing",
       "Custom SLAs & next-day hardware swap",
@@ -131,15 +133,17 @@ export default function Pricing() {
                     padding: "40px 32px",
                     background: isDark ? "#2C2C2E" : "#FFFFFF",
                     border: isHighlighted
-                      ? "2px solid #F5A623"
+                      ? "3.5px solid #F5A623"
                       : isDark
                       ? "1px solid rgba(255,255,255,0.1)"
                       : "1px solid rgba(0,0,0,0.07)",
                     borderRadius: "20px",
                     boxShadow: isHighlighted
-                      ? "0 12px 48px rgba(245,166,35,0.15)"
+                      ? "0 24px 64px rgba(245,166,35,0.22)"
                       : "0 2px 16px rgba(0,0,0,0.05)",
                     position: "relative",
+                    transform: isHighlighted ? "scale(1.04)" : "scale(1)",
+                    zIndex: isHighlighted ? 2 : 1,
                   }}
                   className="pricing-card-responsive"
                 >
@@ -193,38 +197,52 @@ export default function Pricing() {
                     </p>
                   </div>
 
-                  {/* Price */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-end",
-                      gap: "6px",
-                      marginBottom: "28px",
-                    }}
-                  >
-                    <span
+                  {/* Price Block with ROI Payback */}
+                  <div style={{ marginBottom: "28px" }}>
+                    <div
                       style={{
-                        fontFamily: "var(--font-syne, 'Syne', sans-serif)",
-                        fontWeight: 700,
-                        fontSize: "2.8rem",
-                        lineHeight: 1,
-                        color: isDark ? "#FFFFFF" : "#1C1C1E",
+                        display: "flex",
+                        alignItems: "flex-end",
+                        gap: "6px",
                       }}
                     >
-                      {plan.price}
-                    </span>
-                    {plan.period && (
                       <span
                         style={{
-                          fontFamily: "var(--font-nunito, 'Nunito', sans-serif)",
-                          fontSize: "14px",
-                          color: isDark ? "rgba(255,255,255,0.4)" : "#636366",
-                          paddingBottom: "4px",
+                          fontFamily: "var(--font-syne, 'Syne', sans-serif)",
+                          fontWeight: 800,
+                          fontSize: "3rem",
+                          lineHeight: 1,
+                          color: isDark ? "#FFFFFF" : "#1C1C1E",
                         }}
                       >
-                        {plan.period}
+                        {plan.price}
                       </span>
-                    )}
+                      {plan.period && (
+                        <span
+                          style={{
+                            fontFamily: "var(--font-nunito, 'Nunito', sans-serif)",
+                            fontSize: "14px",
+                            color: isDark ? "rgba(255,255,255,0.4)" : "#636366",
+                            paddingBottom: "4px",
+                          }}
+                        >
+                          {plan.period}
+                        </span>
+                      )}
+                    </div>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-nunito, 'Nunito', sans-serif)",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        color: isHighlighted ? "#E28B00" : isDark ? "rgba(255,255,255,0.4)" : "#636366",
+                        marginTop: "8px",
+                        margin: "8px 0 0 0",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {plan.payback}
+                    </p>
                   </div>
 
                   {/* Divider */}
