@@ -58,7 +58,7 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div style={{ display: "flex", gap: "64px" }}>
+          <div className="footer-links-container" style={{ display: "flex", gap: "64px" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
               {COL_LEFT.map((link) => (
                 <Link
@@ -148,6 +148,12 @@ export default function Footer() {
         .footer-social:hover { color: #F5A623 !important; border-color: rgba(245,166,35,0.4) !important; }
         @media (max-width: 767px) {
           .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+        }
+        @media (max-width: 480px) {
+          .footer-links-container {
+            flex-direction: column !important;
+            gap: 24px !important;
+          }
         }
       `}</style>
     </footer>

@@ -1,5 +1,5 @@
-import Sidebar from "@/components/dashboard/Sidebar";
 import ProtectedRoute from "@/components/dashboard/ProtectedRoute";
+import DashboardLayoutClient from "@/components/dashboard/DashboardLayoutClient";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,12 +10,7 @@ export const metadata: Metadata = {
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-brand-gray-light">
-        <Sidebar />
-        <div className="ml-[240px] min-h-screen flex flex-col">
-          {children}
-        </div>
-      </div>
+      <DashboardLayoutClient>{children}</DashboardLayoutClient>
     </ProtectedRoute>
   );
 }

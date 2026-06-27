@@ -112,9 +112,6 @@ export default function Pricing() {
           style={{
             maxWidth: "840px",
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "28px",
             alignItems: "stretch",
           }}
           className="pricing-grid"
@@ -326,6 +323,28 @@ export default function Pricing() {
           </p>
         </FadeUp>
       </div>
+      <style>{`
+        .pricing-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+          gap: 28px;
+        }
+        @media (max-width: 767px) {
+          #pricing {
+            padding-top: 80px !important;
+            padding-bottom: 80px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .pricing-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .pricing-card-responsive {
+            padding: 24px 16px !important;
+            transform: none !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

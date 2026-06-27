@@ -10,6 +10,7 @@ import {
   BarChart3,
   Settings,
   LogOut,
+  X,
 } from "lucide-react";
 
 const NAV = [
@@ -31,7 +32,12 @@ function LogoMark() {
   );
 }
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
   const pathname = usePathname();
   const { user, logout } = useAuth();
 
@@ -44,11 +50,18 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-[240px] bg-brand-black flex flex-col border-r border-white/[0.06] z-30">
+    <aside className={`fixed left-0 top-0 h-screen w-[240px] bg-brand-black flex flex-col border-r border-white/[0.06] z-30 transition-transform duration-300 md:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
       {/* Logo */}
-      <div className="flex items-center gap-2.5 px-6 py-6 border-b border-white/[0.06]">
-        <LogoMark />
-        <span className="font-syne font-bold text-[18px] text-brand-white tracking-[-0.02em]">muzu</span>
+      <div className="flex items-center justify-between px-6 py-6 border-b border-white/[0.06]">
+        <div className="flex items-center gap-2.5">
+          <LogoMark />
+          <span className="font-syne font-bold text-[18px] text-brand-white tracking-[-0.02em]">muzu</span>
+        </div>
+        {onClose && (
+          <button onClick={onClose} className="md:hidden text-brand-gray hover:text-white cursor-pointer" aria-label="Close menu">
+            <X size={20} />
+          </button>
+        )}
       </div>
 
       {/* Nav */}

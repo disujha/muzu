@@ -593,6 +593,15 @@ export default function HowItWorks() {
             max-width: 100% !important;
           }
         }
+        @media (max-width: 767px) {
+          #how-it-works {
+            padding: 80px 20px !important;
+          }
+          .stage-frame {
+            height: 340px !important;
+            padding: 16px !important;
+          }
+        }
       `}</style>
     </section>
   );

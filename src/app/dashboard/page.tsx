@@ -98,20 +98,20 @@ export default function DashboardPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Top bar */}
-      <header className="sticky top-0 z-20 bg-brand-gray-light border-b border-black/[0.06] px-8 py-5 flex items-center justify-between">
+      <header className="sticky top-0 z-20 bg-brand-gray-light border-b border-black/[0.06] px-4 md:px-8 py-4 md:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="font-syne font-bold text-[24px] text-brand-black tracking-[-0.01em]">Overview</h1>
           <p className="font-nunito text-[13px] text-brand-gray mt-0.5">
             {new Date().toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
           </p>
         </div>
-        <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-amber text-brand-charcoal font-nunito font-bold text-[14px] rounded-ui hover:shadow-amber-glow transition-all duration-200">
+        <button className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand-amber text-brand-charcoal font-nunito font-bold text-[14px] rounded-ui hover:shadow-amber-glow transition-all duration-200 self-start sm:self-auto">
           <Plus size={15} />
           Add Device
         </button>
       </header>
 
-      <div className="flex-1 p-8 flex flex-col gap-8">
+      <div className="flex-1 p-4 md:p-8 flex flex-col gap-6 md:gap-8">
         {/* KPI Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
           {KPI_DATA.map((k, i) => <KPICard key={i} {...k} />)}

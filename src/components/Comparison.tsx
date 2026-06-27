@@ -252,6 +252,8 @@ export default function Comparison() {
       <style>{`
         @media (max-width: 767px) {
           .comparison-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+          .comparison-grid > div { padding: 28px 20px !important; }
+          #why-muzu { padding: 80px 20px !important; }
         }
       `}</style>
     </section>

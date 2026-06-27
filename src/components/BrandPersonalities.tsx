@@ -371,6 +371,15 @@ export default function BrandPersonalities() {
             max-width: 100% !important;
           }
         }
+        @media (max-width: 767px) {
+          #brand-personalities {
+            padding: 80px 20px !important;
+          }
+          .device-stage {
+            height: 430px !important;
+            padding: 20px !important;
+          }
+        }
       `}</style>
     </section>
   );

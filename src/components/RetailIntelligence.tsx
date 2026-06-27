@@ -654,6 +654,23 @@ export default function RetailIntelligence() {
             grid-column: span 1;
           }
         }
+
+        @media (max-width: 767px) {
+          #retail-intelligence {
+            padding: 80px 20px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .shelf-level {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
+          }
+          .shelf-tag {
+            width: 100% !important;
+          }
+        }
       `}</style>
     </section>
   );

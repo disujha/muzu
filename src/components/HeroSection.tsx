@@ -73,6 +73,7 @@ export default function HeroSection() {
 
   return (
     <section
+      className="hero-section"
       style={{
         position: "relative",
         minHeight: "100vh",
@@ -718,6 +719,11 @@ export default function HeroSection() {
 
       <style>{`
         @media (max-width: 767px) {
+          .hero-section {
+            padding-top: 80px !important;
+            padding-bottom: 40px !important;
+            min-height: auto !important;
+          }
           .hero-bubble-1, .hero-bubble-2, .hero-bubble-3, .hero-bubble-4 {
             display: none !important;
           }
@@ -767,8 +773,23 @@ export default function HeroSection() {
             border-right: none !important;
             border-bottom: 1.5px solid rgba(255,255,255,0.06);
             padding-bottom: 16px !important;
+            padding-left: 8px !important;
+            padding-right: 8px !important;
           }
-          .stat-col:nth-child(3), .stat-col:nth-col(4) {
+          .stat-col:nth-child(3), .stat-col:nth-child(4) {
+            border-bottom: none !important;
+            padding-bottom: 0 !important;
+          }
+        }
+        @media (max-width: 539px) {
+          .stats-grid-bezel {
+            grid-template-columns: 1fr !important;
+          }
+          .stat-col {
+            border-bottom: 1.5px solid rgba(255,255,255,0.06) !important;
+            padding-bottom: 16px !important;
+          }
+          .stat-col:last-child {
             border-bottom: none !important;
             padding-bottom: 0 !important;
           }

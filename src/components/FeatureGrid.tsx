@@ -98,6 +98,7 @@ export default function FeatureGrid() {
 
         {/* Grid */}
         <div
+          className="features-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))",
@@ -169,6 +170,19 @@ export default function FeatureGrid() {
           ))}
         </div>
       </div>
+      <style>{`
+        @media (max-width: 480px) {
+          .features-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 767px) {
+          #product {
+            padding-top: 80px !important;
+            padding-bottom: 80px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

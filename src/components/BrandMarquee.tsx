@@ -165,6 +165,7 @@ export default function BrandMarquee() {
 
         {/* 2x2 Grid of Category Cards */}
         <div
+          className="marquee-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))",
@@ -325,6 +326,19 @@ export default function BrandMarquee() {
         </FadeUp>
 
       </div>
+      <style>{`
+        @media (max-width: 480px) {
+          .marquee-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 767px) {
+          #brands {
+            padding-top: 80px !important;
+            padding-bottom: 80px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
